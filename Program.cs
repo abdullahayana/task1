@@ -2,7 +2,7 @@
 
 namespace ConsoleApp1
 {
-    public class Person
+    public  class Person
         {
         public string Name;
         public int Age;
@@ -14,7 +14,7 @@ namespace ConsoleApp1
         }
         public virtual void print()
         {
-
+            Console.WriteLine("my name is " + Name + ", my age is " + Age);
         }
 
         }
@@ -30,7 +30,7 @@ namespace ConsoleApp1
         }
         public override void print()
         {
-            Console.WriteLine("my name is" + Name+", my age is" +Age+" and my gpa is "+Gpa);
+            Console.WriteLine("my name is " + Name+", my age is " +Age+" and my gpa is "+Gpa);
         }
     }
     public class Datebase
@@ -44,6 +44,10 @@ namespace ConsoleApp1
         public void Addstaff(Staff staff)
         {
             people[_currentInndex++] = staff;
+        }
+        public void Addperson(Person person)
+        {
+            people[_currentInndex++] = person;
         }
         public void PrintAll()
         {
@@ -64,7 +68,7 @@ namespace ConsoleApp1
         }
         public override void print()
         {
-            Console.WriteLine("my name is"+Name+", my age is"+Age+"and my salary is"+Salary);
+            Console.WriteLine("my name is "+Name+", my age is "+Age+"and my salary is "+Salary);
         }
     }
     class Program
@@ -74,7 +78,7 @@ namespace ConsoleApp1
             var database = new Datebase();
            
             while (true) {
-                Console.WriteLine("select an option : 1-student   2-staff   3-printAll");
+                Console.WriteLine("select an option to add : 1-student   2-staff   3-person   4-printAll");
                 var x = Convert.ToInt32(Console.ReadLine());
                 switch (x) {
                     case 1:
@@ -101,8 +105,15 @@ namespace ConsoleApp1
                         var staff = new Staff(Name, Age, salary, joinyear);
                         database.Addstaff(staff);
                         break;
-
-                    case 3:
+                        case 3:
+                        Console.Write("Name: ");
+                        var Nam = Console.ReadLine();
+                        Console.Write("Age: ");
+                        var Agee = Convert.ToInt32(Console.ReadLine());
+                        var person = new Person(Nam,Agee);
+                        database.Addperson(person);
+                        break;
+                    case 4:
                         database.PrintAll();
                         break;
                     default:
@@ -110,7 +121,7 @@ namespace ConsoleApp1
 
                 }
 
-
+              
 
 
 
