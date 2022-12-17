@@ -128,7 +128,7 @@ namespace ConsoleApp1
             }
             set
             {
-                if (value < 21)
+                if (Age < 21)
                 {
                     throw new ArgumentOutOfRangeException(" invalid join year");
 
@@ -143,9 +143,9 @@ namespace ConsoleApp1
                 throw new ArgumentOutOfRangeException(" invalid Salary");
 
             }
-            if (_joinYear <21)
+            if (age <21)
             {
-                throw new ArgumentOutOfRangeException(" invalid join year");
+                throw new ArgumentOutOfRangeException(" invalid join age");
 
             }
             Salary = salary;
